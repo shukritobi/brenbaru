@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#12b8c7">
+  <title>Checkout | Brenbaru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;650;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+<header><div class="wrap head"><a href="index.html"><img src="assets/brenbaru-logo.webp" alt="Brenbaru"></a><a class="back" href="index.html">← keep shopping</a></div></header>
+<main class="wrap">
+  <div class="title"><small>SECURE CHECKOUT</small><h1>almost yours ✿</h1><p>Contact, delivery and payment in one clean step.</p></div>
+  <div class="layout">
+    <form class="panel" id="checkoutForm" onsubmit="return submitCheckout(event)">
+      <div class="section"><h2>1. Contact</h2><div class="grid2"><div class="field"><label>Email</label><input type="email" name="email" autocomplete="email" required placeholder="you@email.com"></div><div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" autocomplete="tel" required placeholder="+60"></div></div></div>
+      <div class="section"><h2>2. Delivery address</h2><div class="grid2">
+        <div class="field"><label>First name</label><input name="firstName" required autocomplete="given-name"></div>
+        <div class="field"><label>Last name</label><input name="lastName" required autocomplete="family-name"></div>
+        <div class="field full"><label>Address</label><input name="address1" required autocomplete="address-line1" placeholder="House / unit / street"></div>
+        <div class="field full"><label>Apartment, suite, etc. (optional)</label><input name="address2" autocomplete="address-line2"></div>
+        <div class="field"><label>Postcode</label><input name="postcode" required autocomplete="postal-code"></div>
+        <div class="field"><label>City</label><input name="city" required autocomplete="address-level2"></div>
+        <div class="field"><label>State</label><select name="state" required><option value="">Select state</option><option>Selangor</option><option>Kuala Lumpur</option><option>Putrajaya</option><option>Johor</option><option>Kedah</option><option>Kelantan</option><option>Melaka</option><option>Negeri Sembilan</option><option>Pahang</option><option>Perak</option><option>Perlis</option><option>Penang</option><option>Sabah</option><option>Sarawak</option><option>Terengganu</option></select></div>
+        <div class="field"><label>Country</label><select name="country" required><option>Malaysia</option><option>Singapore</option><option>Indonesia</option><option>Other / International</option></select></div>
+        <div class="field full"><label>Order notes / engraving backup</label><textarea name="notes" placeholder="Anything the merchant should know?"></textarea></div>
+      </div></div>
+      <div class="section"><h2>3. Shipping</h2><div class="ship">
+        <label class="choice"><input type="radio" name="shipping" value="standard" data-cost="8" checked><span><b>Standard Malaysia</b><small>Estimated 3 to 4 business days for ready stock</small></span><span class="right">RM 8.00</span></label>
+        <label class="choice"><input type="radio" name="shipping" value="pickup" data-cost="0"><span><b>Merchant-confirmed option</b><small>Use when an alternate fulfilment method is arranged</small></span><span class="right">RM 0.00</span></label>
+        <label class="choice"><input type="radio" name="shipping" value="international" data-cost="35"><span><b>International estimate</b><small>Final courier cost and taxes are confirmed by merchant</small></span><span class="right">RM 35.00*</span></label>
+      </div></div>
+      <div class="section"><h2>4. Payment</h2><div class="pay">
+        <label class="choice"><input type="radio" name="payment" value="fpx" checked><span><b>FPX / Online Banking</b><small>Merchant gateway, Billplz style handoff</small></span></label>
+        <label class="choice"><input type="radio" name="payment" value="card"><span><b>Credit / Debit Card</b><small>Secure card gateway</small></span></label>
+        <label class="choice"><input type="radio" name="payment" value="atome"><span><b>Atome</b><small>3 instalments where available</small></span></label>
+      </div></div>
+    </form>
+
+    <aside class="panel summary">
+      <h2>Order summary</h2>
+      <div class="items" id="items"></div>
+      <div class="section" style="margin-top:20px;padding-bottom:18px"><div class="voucher"><input id="voucher" placeholder="Voucher / discount code"><button onclick="applyVoucher()" type="button">Apply</button></div><div id="voucherMsg" style="font-size:10px;color:var(--muted);margin-top:5px"></div></div>
+      <div class="totals">
+        <div class="totalrow"><span>Subtotal</span><span id="subtotal" class="money">RM 0.00</span></div>
+        <div class="totalrow"><span>Shipping</span><span id="shipping" class="money">RM 8.00</span></div>
+        <div class="totalrow"><span>Discount</span><span id="discount" class="money">RM 0.00</span></div>
+        <div class="totalrow grand"><span>Total</span><span id="total">RM 0.00</span></div>
+      </div>
+      <button class="paybtn" form="checkoutForm" type="submit">Continue to secure payment →</button>
+      <div class="secure">🔒 This GitHub Pages version is a storefront preview. It does not collect or transmit payment-card details. The final payment step is handed to the current merchant checkout.</div>
+      <div class="handoff" id="handoff"><b>Checkout details are ready.</b><br>For production, connect this button to Brenbaru's Billplz/Stripe server endpoint so the exact order total is created securely. For now, continue to the current merchant store to complete payment.<br><a id="merchantLink" href="https://www.mxdsupplyco.com/collections/brenbaru" target="_blank" rel="noreferrer">Open current Brenbaru merchant checkout ↗</a></div>
+    </aside>
+  </div>
+</main>
+<footer>BRENbaru GOODS BUSINESS · TR0344662-M · storefront preview</footer>
+<script src="checkout.js" defer></script>
+</body>
+</html>
