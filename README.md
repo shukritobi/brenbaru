@@ -1,18 +1,22 @@
-# Brenbaru
+# Brenbaru storefront
 
-Single-page storefront preview for **Brenbaru Goods Business**.
+Single-page Brenbaru storefront concept with a dedicated checkout page.
 
-- Brand: Brenbaru
-- Registration: 202603162501 (TR0344662-M)
-- Catalogue: Macaron MagSafe Stand, Dots Card Holder, Kids ToonBagpack, Magsie Card Holder
-- Checkout handoff: current MXD Supply Co. merchant checkout
-- Payment methods displayed by the merchant storefront: Billplz, Stripe and Atome
-- Socials: `@brenbaru.my`
+## Included
+- Responsive Brenbaru landing page and catalogue
+- Optimised WebP brand/product assets
+- Fredoka display typography + Nunito body typography
+- Product quick-view modal with features, engraving and shipping tabs
+- Variant selection and local cart
+- Dedicated checkout page with contact, delivery, voucher, payment selection and order summary
+- Final payment handoff to the current MXD merchant store
+
+## Payment note
+GitHub Pages is static. A real Billplz or Stripe payment session must be created from a secure server or serverless function because gateway secret keys must never be exposed in browser JavaScript. The checkout UI is ready for that backend endpoint.
+
+## Current asset payload
+The supplied brand and four product images were converted to WebP and aggressively reduced for the preview while retaining usable storefront quality.
 
 ## Live site
 
-GitHub Pages target: `https://shukritobi.github.io/brenbaru/`
-
-## Notes
-
-The front end is intentionally static and lightweight for GitHub Pages. Product selection and cart interactions happen on-page, while final stock, shipping, variant selection and payment are confirmed on Brenbaru's existing MXD Supply Co. checkout.
+`https://shukritobi.github.io/brenbaru/`
